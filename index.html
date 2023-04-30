@@ -27,9 +27,10 @@ do {
   alert("Sem troco acima de 50€. Repetir.");
   } 
 } while(pagar<0 || dado<pagar || isNaN(pagar) || isNaN(dado) || troco > valor[0]);  
+let trocoFinal = troco.toFixed(2);
 console.log("Preço: " + pagar + "€");
 console.log("Pago com: " + dado + "€");
-console.log("Troco: " + troco + "€");  
+console.log("Troco: " + trocoFinal + "€");  
 alert("Troco total: " + troco + "€. Abre a consola do browser para a contagem das notas e moedas.")
  if (troco == valor[0]) {
   qtd[0]=1;
