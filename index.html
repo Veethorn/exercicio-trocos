@@ -57,8 +57,49 @@ console.log("Moedas de 0.05€: " + qtd[9]);
 console.log("Moedas de 0.02€: " + qtd[10]);
 console.log("Moedas de 0.01€: " + qtd[11]);
 console.log("digita 'c()' para novo cálculo");
+console.log("digita 'c50()' para novo cálculo com troco superiores a 50€");
 }
 const contarTrocos = c();
+
+function c50() {
+do {
+  pagar = parseFloat(prompt("Valor a pagar",""));
+  dado = parseFloat(prompt("Valor entregue",""));
+  troco = dado - pagar;
+  if(pagar<0 || dado<pagar || isNaN(pagar) || isNaN(dado)) {
+    alert("Inválido. Repetir.");
+  } else if (troco > 500) {
+  alert("Sem troco acima de 500€. Repetir.");
+  } 
+} while(pagar<0 || dado<pagar || isNaN(pagar) || isNaN(dado) || troco >= 500);  
+let trocoFinal = troco.toFixed(2);
+console.log("Preço: " + pagar + "€");
+console.log("Pago com: " + dado + "€");
+console.log("Troco: " + trocoFinal + "€");  
+alert("Troco total: " + troco + "€. Abre a consola do browser para a contagem das notas e moedas.")
+for (let i=0; i<12; i++){
+  if(troco<500 && troco>=valor[i]) {
+    do {
+      qtd[i]=qtd[i]+1;
+      troco=troco-valor[i];
+    } while (troco>=valor[i]);
+  }
+} 
+console.log("Notas de 50€: " + qtd[0]);
+console.log("Notas de 20€: " + qtd[1]);
+console.log("Notas de 10€: " + qtd[2]);
+console.log("Notas de 5€: " + qtd[3]);
+console.log("Moedas de 2€: " + qtd[4]);
+console.log("Moedas de 1€: " + qtd[5]);
+console.log("Moedas de 0.5€: " + qtd[6]);
+console.log("Moedas de 0.2€: " + qtd[7]);
+console.log("Moedas de 0.1€: " + qtd[8]);
+console.log("Moedas de 0.05€: " + qtd[9]);
+console.log("Moedas de 0.02€: " + qtd[10]);
+console.log("Moedas de 0.01€: " + qtd[11]);
+console.log("digita 'c()' para novo cálculo");
+}
+
 
 </script>
 </body>
